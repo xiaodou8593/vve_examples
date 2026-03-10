@@ -1,0 +1,5 @@
+#vve_examples:dice_6/set_operation
+# vve_examples:dice_6/_new调用
+
+function vve_examples:dice_6/_update_display
+function vve:object/_sync_motion

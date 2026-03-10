@@ -1,0 +1,25 @@
+#vve_examples:_init
+# 初始化vve_examples包
+
+forceload add -1 -1 1 1
+
+
+
+scoreboard objectives add int dummy
+scoreboard players set -1 int -1
+scoreboard players set 0 int 0
+scoreboard players set 1 int 1
+scoreboard players set 2 int 2
+scoreboard players set 3 int 3
+scoreboard players set 4 int 4
+scoreboard players set 5 int 5
+scoreboard players set 10 int 10
+scoreboard players set 100 int 100
+scoreboard players set 1000 int 1000
+scoreboard players set 10000 int 10000
+
+function vve_examples:_consts
+
+function vve_examples:_class
+
+function vve_examples:dice_6/init
