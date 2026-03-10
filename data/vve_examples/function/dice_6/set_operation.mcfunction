@@ -2,4 +2,5 @@
 # vve_examples:dice_6/_new调用
 
 function vve_examples:dice_6/_update_display
-function vve:object/_sync_motion
+
+item replace entity @s container.0 with command_block
