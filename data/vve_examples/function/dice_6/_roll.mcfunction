@@ -9,9 +9,12 @@ data modify storage vve_examples:io input set from storage vve_examples:class di
 tp @s ~ ~ ~
 data modify storage vve_examples:io input.center set from entity @s Pos
 function vve_examples:dice_6/_new
+scoreboard players operation temp_phi int = quat_phi int
 execute as @e[tag=result,limit=1] run function vve_examples:dice_6/_get
+scoreboard players operation quat_phi int = temp_phi int
 
 function vve_examples:dice_6/_rand_quat
+#function vve_examples:dice_6/rand_quat_debug
 
 # 设置冲量
 tp @s ~ ~ ~

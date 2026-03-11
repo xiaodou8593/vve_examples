@@ -9,6 +9,7 @@ execute as 0-0-0-0-0 run function vve:object/_iter_motion
 execute as 0-0-0-0-0 run function vve:block/_iter_cpoints
 # 力学迭代
 scoreboard players operation vy int -= vve_gravity int
+execute if score test_n int matches 17 run function vve:shift/_print
 # 介质响应
 execute if score shift_response int matches 1 run function vve:object/_apply_shift
 execute if score impulse_response int matches 1 as 0-0-0-0-0 run function vve:block/_apply_impulse
