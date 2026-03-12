@@ -1,18 +1,17 @@
-#vve_examples:dice_6/_roll
+#vve_examples:dice_4/_roll
 # 进行一次骰子实验
 # 输入执行位置
 # 输入执行朝向
 # 需要传入世界实体为执行者
 
 # 生成骰子
-data modify storage vve_examples:io input set from storage vve_examples:class dice_6_plate
+data modify storage vve_examples:io input set from storage vve_examples:class dice_4_plate
 tp @s ~ ~ ~
 data modify storage vve_examples:io input.center set from entity @s Pos
-function vve_examples:dice_6/_new
-execute as @e[tag=result,limit=1] run function vve_examples:dice_6/_get
+function vve_examples:dice_4/_new
+execute as @e[tag=result,limit=1] run function vve_examples:dice_4/_get
 
-function vve_examples:dice_6/_rand_quat
-#function vve_examples:dice_6/rand_quat_debug
+function vve_examples:dice_4/_rand_quat
 
 # 设置冲量
 tp @s ~ ~ ~
@@ -30,11 +29,11 @@ scoreboard players operation impulse_x int -= impulse_fx int
 scoreboard players operation impulse_z int -= impulse_fz int
 function vve:block/_apply_impulse
 
-execute as @e[tag=result,limit=1] run function vve_examples:dice_6/_store
+execute as @e[tag=result,limit=1] run function vve_examples:dice_4/_store
 
 # 设置销毁事件
 execute as @e[tag=result,limit=1] run function marker_control:data/_get
-data modify storage marker_control:io result.del_func set value "vve_examples:dice_6/_print_value_as"
+data modify storage marker_control:io result.del_func set value "vve_examples:dice_4/_print_value_as"
 execute as @e[tag=result,limit=1] run function marker_control:data/_store
 tag @e[tag=result,limit=1] add entity_todel
 scoreboard players set @e[tag=result,limit=1] killtime 120
