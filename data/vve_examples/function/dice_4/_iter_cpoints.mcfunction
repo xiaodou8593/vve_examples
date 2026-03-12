@@ -7,7 +7,7 @@
 function vve:object/_clear_receiver
 
 # 相对坐标组成部分
-execute store result score sstemp_iz int store result score sstemp_jz int run scoreboard players operation sstemp_kz int = a int
+execute store result score sstemp_iz int store result score sstemp_jx int store result score sstemp_jy int store result score sstemp_jz int run scoreboard players operation sstemp_kz int = a int
 scoreboard players operation sstemp_iz int *= 881 int
 execute store result score sstemp_ix int store result score sstemp_iy int run scoreboard players operation sstemp_iz int /= 1079 int
 scoreboard players operation sstemp_kz int *= -1393 int
@@ -102,6 +102,10 @@ scoreboard players operation sstemp0 int *= sstempx int
 scoreboard players operation sstemp_tz int -= sstemp0 int
 scoreboard players operation sstemp_tz int /= 10000 int
 
+#tellraw @a "---"
+#tellraw @a ["sstemp_i: ",{"score":{"name":"sstemp_ix","objective":"int"}},", ",{"score":{"name":"sstemp_iy","objective":"int"}},", ",{"score":{"name":"sstemp_iz","objective":"int"}}]
+#tellraw @a ["sstemp_j: ",{"score":{"name":"sstemp_jx","objective":"int"}},", ",{"score":{"name":"sstemp_jy","objective":"int"}},", ",{"score":{"name":"sstemp_jz","objective":"int"}}]
+#tellraw @a ["sstemp_k: ",{"score":{"name":"sstemp_kx","objective":"int"}},", ",{"score":{"name":"sstemp_ky","objective":"int"}},", ",{"score":{"name":"sstemp_kz","objective":"int"}}]
 #tellraw @a ["sstemp_r: ",{"score":{"name":"sstemp_rx","objective":"int"}},", ",{"score":{"name":"sstemp_ry","objective":"int"}},", ",{"score":{"name":"sstemp_rz","objective":"int"}}]
 #tellraw @a ["sstemp_s: ",{"score":{"name":"sstemp_sx","objective":"int"}},", ",{"score":{"name":"sstemp_sy","objective":"int"}},", ",{"score":{"name":"sstemp_sz","objective":"int"}}]
 #tellraw @a ["sstemp_t: ",{"score":{"name":"sstemp_tx","objective":"int"}},", ",{"score":{"name":"sstemp_ty","objective":"int"}},", ",{"score":{"name":"sstemp_tz","objective":"int"}}]
@@ -130,22 +134,34 @@ scoreboard players operation friction_receiver_response int < friction_response 
 execute if score shift_response int matches 1 run function vve:object/_receive_shift
 execute if score impulse_response int matches 1 run function vve:object/_receive_impulse
 
+scoreboard players operation c_x int -= x int
+scoreboard players operation c_y int -= y int
+scoreboard players operation c_z int -= z int
+scoreboard players operation c_vx int -= vx int
+scoreboard players operation c_vy int -= vy int
+scoreboard players operation c_vz int -= vz int
 execute store result score c_x int store result score c_y int run scoreboard players operation c_z int /= -3 int
 execute store result score c_vx int store result score c_vy int run scoreboard players operation c_vz int /= -3 int
+scoreboard players operation c_x int += x int
+scoreboard players operation c_y int += y int
+scoreboard players operation c_z int += z int
+scoreboard players operation c_vx int += vx int
+scoreboard players operation c_vy int += vy int
+scoreboard players operation c_vz int += vz int
 
 # 顶点2介质探测
-scoreboard players operation c_x += sstemp_ix
-scoreboard players operation c_y += sstemp_iy
-scoreboard players operation c_z += sstemp_iz
-execute store result storage math:io xyz[0] double 0.0001 run scoreboard players operation c_x += sstemp_kx
-execute store result storage math:io xyz[1] double 0.0001 run scoreboard players operation c_y += sstemp_ky
-execute store result storage math:io xyz[2] double 0.0001 run scoreboard players operation c_z += sstemp_kz
-scoreboard players operation c_vx += sstemp_rx
-scoreboard players operation c_vy += sstemp_ry
-scoreboard players operation c_vz += sstemp_rz
-scoreboard players operation c_vx += sstemp_tx
-scoreboard players operation c_vy += sstemp_ty
-scoreboard players operation c_vz += sstemp_tz
+scoreboard players operation c_x int += sstemp_ix int
+scoreboard players operation c_y int += sstemp_iy int
+scoreboard players operation c_z int += sstemp_iz int
+execute store result storage math:io xyz[0] double 0.0001 run scoreboard players operation c_x int += sstemp_kx int
+execute store result storage math:io xyz[1] double 0.0001 run scoreboard players operation c_y int += sstemp_ky int
+execute store result storage math:io xyz[2] double 0.0001 run scoreboard players operation c_z int += sstemp_kz int
+scoreboard players operation c_vx int += sstemp_rx int
+scoreboard players operation c_vy int += sstemp_ry int
+scoreboard players operation c_vz int += sstemp_rz int
+scoreboard players operation c_vx int += sstemp_tx int
+scoreboard players operation c_vy int += sstemp_ty int
+scoreboard players operation c_vz int += sstemp_tz int
 data modify entity @s Pos set from storage math:io xyz
 execute at @s run function vve:_detect_material
 scoreboard players operation bounce_layer_receiver_response int += bounce_layer_response int

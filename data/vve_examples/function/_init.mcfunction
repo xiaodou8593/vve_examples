@@ -22,4 +22,5 @@ function vve_examples:_consts
 
 function vve_examples:_class
 
+function vve_examples:dice_4/init
 function vve_examples:dice_6/init
