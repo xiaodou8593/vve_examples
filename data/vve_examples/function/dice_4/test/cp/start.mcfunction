@@ -8,7 +8,7 @@ kill @e[tag=test]
 # 生成测试程序实体
 tag @e[tag=result] remove result
 summon item_display 193 -53 53 {Tags:["test", "dice_4_test", "result"], CustomName:{"text":"dice_4_test"},teleport_duration:1,interpolation_duration:1,brightness:{sky:15,block:15}}
-item replace entity @e[tag=result,limit=1] container.0 with minecraft:pearlescent_froglight
+item replace entity @e[tag=result,limit=1] container.0 with minecraft:clay_ball[minecraft:item_model="dice:dice2"]
 data modify entity @e[tag=result,limit=1] transformation.scale set value [0.35f,0.35f,0.35f]
 scoreboard players set a int 2500
 scoreboard players set mass int 8
