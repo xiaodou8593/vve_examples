@@ -20,7 +20,9 @@ execute store result score impulse_x int run data get storage math:io xyz[0] 100
 execute store result score impulse_y int run data get storage math:io xyz[1] 10000
 execute store result score impulse_z int run data get storage math:io xyz[2] 10000
 scoreboard players operation impulse_y int += a int
-execute rotated ~ 0.0 positioned 0.0 0.0 0.0 run tp @s ^ ^ ^1.5
+scoreboard players operation impulse_y int += a int
+scoreboard players operation impulse_y int += a int
+execute rotated ~ 0.0 positioned 0.0 0.0 0.0 run tp @s ^ ^ ^2.0
 data modify storage math:io xyz set from entity @s Pos
 execute store result score impulse_fx int run data get storage math:io xyz[0] 10000
 execute store result score impulse_fz int run data get storage math:io xyz[2] 10000
