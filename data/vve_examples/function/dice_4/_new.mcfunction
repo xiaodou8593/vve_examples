@@ -5,6 +5,6 @@
 # 输出 @e[tag=result,limit=1]
 
 tag @e[tag=result] remove result
-summon item_display ~ ~ ~ {Tags:["dice_4", "result"],CustomName:"dice_4",brightness:{sky:15,block:15},teleport_duration:1,interpolation_duration:1,transformation:{right_rotation:[0.0f,0.0f,0.0f,1.0f],scale:[1.0f,1.0f,1.0f],left_rotation:[0.0f,0.0f,0.0f,1.0f],translation:[0.0f,0.0f,0.0f]}}
+summon item_display ~ ~ ~ {Tags:["dice_4", "result"],CustomName:"dice_4",brightness:{sky:15,block:15},teleport_duration:1,interpolation_duration:1,transformation:{right_rotation:[0.0f,0.0f,0.0f,1.0f],scale:[1.0f,1.0f,1.0f],left_rotation:[0.0f,0.0f,0.0f,1.0f],translation:[0.0f,0.0f,0.0f]},item_display:"fixed"}
 execute as @e[tag=result,limit=1] run function vve_examples:dice_4/set
 execute as @e[tag=result,limit=1] run function vve_examples:dice_4/set_operation
