@@ -24,3 +24,5 @@ function vve_examples:_class
 
 function vve_examples:dice_4/init
 function vve_examples:dice_6/init
+function vve_examples:dice_8/init
+function vve_examples:dice_12/init
