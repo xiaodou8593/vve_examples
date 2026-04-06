@@ -3,6 +3,13 @@
 function vve:_init
 function vve_examples:dice_12/init
 
+scoreboard players set vve_grab_friction int 9500
+scoreboard players set vve_solid_friction int 9500
+scoreboard players set vve_grab_friction_tan int 2500
+scoreboard players set vve_solid_friction_tan int 2500
+# 使用函数y=1/(x+1)对比例x进行映射后得到的值
+scoreboard players set vve_solid_bounce_inv int 6896
+
 kill @e[tag=test]
 
 # 生成测试程序实体
@@ -11,7 +18,8 @@ function vve_examples:dice_12/_proj
 execute positioned 193 -53 54 rotated 0.0 0.0 as @e[tag=math_marker,limit=1] run function vve:object/_anchor_to
 function vve_examples:dice_12/_model
 data modify storage vve_examples:io input set from storage vve_examples:io result
-function vve_examples:dice_12/_new
+data modify entity @e[tag=math_marker,limit=1] Pos set from storage vve_examples:io input.center
+execute at @e[tag=math_marker,limit=1] run function vve_examples:dice_12/_new
 item replace entity @e[tag=result,limit=1] container.0 with minecraft:clay_ball[minecraft:item_model="dice:dice4"]
 tag @e[tag=result,limit=1] add test
 tag @e[tag=result,limit=1] remove dice_12
@@ -31,4 +39,5 @@ scoreboard players set @e[tag=result,limit=1] killtime 10
 scoreboard players set test int -1
 
 # 设置旋转
-execute at @e[tag=result,limit=1] positioned ~5.0 ~5.0 ~5.0 run function vve_examples:dice_12/test/cp/rotate_here
+#execute at @e[tag=result,limit=1] positioned ~55.0 ~55.0 ~55.0 run function vve_examples:dice_12/test/cp/rotate_here
+scoreboard players set test_n int 0
