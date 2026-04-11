@@ -19,16 +19,16 @@ data modify storage vve_examples:io result set value [\
 ]
 data modify storage vve_examples:io temp_values set value [\
 	1,\
-	5,\
-	4,\
-	9,\
-	2,\
-	7,\
-	6,\
-	8,\
 	3,\
+	11,\
+	4,\
+	5,\
+	6,\
+	9,\
+	8,\
+	7,\
 	12,\
 	10,\
-	11\
+	2\
 ]
 execute if data storage vve_examples:io result[0] run function vve_examples:dice_12/get_value_loop
