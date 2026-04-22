@@ -14,13 +14,13 @@ data modify storage vve_examples:io result set value [\
 	[0.8165d,-0.5773d,0.0d]\
 ]
 data modify storage vve_examples:io temp_values set value [\
+	3,\
 	1,\
 	2,\
-	3,\
 	4,\
-	5,\
-	6,\
 	7,\
-	8\
+	5,\
+	8,\
+	6\
 ]
 execute if data storage vve_examples:io result[0] run function vve_examples:dice_8/get_value_loop

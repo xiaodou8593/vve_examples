@@ -12,11 +12,11 @@ data modify storage vve_examples:io result set value [\
 	[-1.0d,0.0d,0.0d]\
 ]
 data modify storage vve_examples:io temp_values set value [\
+	4,\
 	1,\
 	2,\
 	3,\
-	4,\
-	5,\
-	6\
+	6,\
+	5\
 ]
 execute if data storage vve_examples:io result[0] run function vve_examples:dice_6/get_value_loop
