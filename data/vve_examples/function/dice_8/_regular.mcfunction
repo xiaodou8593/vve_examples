@@ -31,7 +31,7 @@ scoreboard players set sstemp_n6_x int 8165
 scoreboard players set sstemp_n6_y int 5773
 scoreboard players set sstemp_n6_z int 0
 
-scoreboard players set sstemp_n7_x int 0    
+scoreboard players set sstemp_n7_x int 0
 scoreboard players set sstemp_n7_y int 5773
 scoreboard players set sstemp_n7_z int 8165
 

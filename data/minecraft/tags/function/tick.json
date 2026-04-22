@@ -1,0 +1,8 @@
+{
+    "values": [
+        "vve_examples:dice_4/tick",
+        "vve_examples:dice_6/tick",
+        "vve_examples:dice_8/tick",
+        "vve_examples:dice_12/tick"
+    ]
+}
