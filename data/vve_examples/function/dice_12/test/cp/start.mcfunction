@@ -20,7 +20,7 @@ function vve_examples:dice_12/_model
 data modify storage vve_examples:io input set from storage vve_examples:io result
 data modify entity @e[tag=math_marker,limit=1] Pos set from storage vve_examples:io input.center
 execute at @e[tag=math_marker,limit=1] run function vve_examples:dice_12/_new
-item replace entity @e[tag=result,limit=1] container.0 with minecraft:clay_ball[minecraft:item_model="dice:dice4"]
+item replace entity @e[tag=result,limit=1] container.0 with minecraft:clay_ball[minecraft:item_model="dice:d12"]
 tag @e[tag=result,limit=1] add test
 tag @e[tag=result,limit=1] remove dice_12
 

@@ -30,4 +30,4 @@ scoreboard players set @e[tag=result,limit=1] killtime 10
 scoreboard players set test int -1
 
 # 设置旋转
-execute at @e[tag=result,limit=1] positioned ~5.0 ~5.0 ~5.0 run function vve_examples:dice_8/test/cp/rotate_here
+#execute at @e[tag=result,limit=1] positioned ~5.0 ~5.0 ~5.0 run function vve_examples:dice_8/test/cp/rotate_here

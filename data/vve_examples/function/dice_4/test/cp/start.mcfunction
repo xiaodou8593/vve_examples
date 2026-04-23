@@ -16,7 +16,7 @@ kill @e[tag=test]
 tag @e[tag=result] remove result
 summon item_display 191 -53 54 {Tags:["test", "dice_4_test", "result"], CustomName:{"text":"dice_4_test"},teleport_duration:1,interpolation_duration:1,brightness:{sky:15,block:15},item_display:"fixed"}
 #item replace entity @e[tag=result,limit=1] container.0 with minecraft:pearlescent_froglight
-item replace entity @e[tag=result,limit=1] container.0 with minecraft:clay_ball[minecraft:item_model="dice:dice2"]
+item replace entity @e[tag=result,limit=1] container.0 with minecraft:clay_ball[minecraft:item_model="dice:d4"]
 data modify entity @e[tag=result,limit=1] transformation.scale set value [0.35f,0.35f,0.35f]
 scoreboard players set a int 5000
 scoreboard players set mass int 8
@@ -41,4 +41,4 @@ scoreboard players set @e[tag=result,limit=1] killtime 10
 scoreboard players set test int -1
 
 # 设置旋转
-execute as @e[tag=result,limit=1] at @s positioned ~25.0 ~25.0 ~25.0 run function vve_examples:dice_4/test/cp/rotate_here_as
+#execute as @e[tag=result,limit=1] at @s positioned ~25.0 ~25.0 ~25.0 run function vve_examples:dice_4/test/cp/rotate_here_as
