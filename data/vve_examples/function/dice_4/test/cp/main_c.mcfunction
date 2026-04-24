@@ -5,7 +5,12 @@ scoreboard players set @s killtime 10
 
 function vve_examples:dice_4/_get
 # 运动学迭代
-execute as 0-0-0-0-0 run function vve:object/_iter_motion
+#execute as 0-0-0-0-0 run function vve:object/_iter_motion
+# 面向玩家
+data modify storage math:io render_command set from storage math:class particle_commands.red_dust
+execute at @s facing entity @n[type=cow] eyes as 0-0-0-0-0 run function math:facing/_render
+execute at @s facing entity @n[type=cow] eyes as 0-0-0-0-0 run function math:quat/_facing_to
+function math:quat/_to_uvw
 # 介质探测
 execute as 0-0-0-0-0 run function vve_examples:dice_4/_iter_cpoints_c
 # 力学迭代

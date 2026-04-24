@@ -15,12 +15,15 @@ data modify storage $(project_name):io result set value [\
 execute store result score loop int run random value 0..7
 execute if score loop int matches 1.. run function $(module_prefix)rand_quat_loop
 data modify entity @s Pos set from storage $(project_name):io result[0]
-execute store result score uvec_x int run data get storage $(project_name):io result[0][0] 10000
-execute store result score uvec_y int run data get storage $(project_name):io result[0][1] 10000
-execute store result score uvec_z int run data get storage $(project_name):io result[0][2] 10000
 # 设置姿态与旋转
 execute positioned 0.0 0.0 0.0 facing entity @s feet run function math:quat/_facing_to
+scoreboard players operation quat_x int *= -1 int
+scoreboard players operation quat_y int *= -1 int
+scoreboard players operation quat_z int *= -1 int
 function math:quat/_topose
+scoreboard players set uvec_x int 0
+scoreboard players set uvec_y int 0
+scoreboard players set uvec_z int 10000
 function math:quat/axis/_uvecto
 execute store result score quat_phi int run random value 0..359
 scoreboard players operation quat_phi int /= 60 int

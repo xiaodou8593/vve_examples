@@ -15,6 +15,7 @@ scoreboard players set 4 int 4
 scoreboard players set 5 int 5
 scoreboard players set 10 int 10
 scoreboard players set 100 int 100
+scoreboard players set 360 int 360
 scoreboard players set 1000 int 1000
 scoreboard players set 10000 int 10000
 

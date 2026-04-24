@@ -5,11 +5,11 @@ scoreboard players set @s killtime 10
 
 function vve_examples:dice_4/_get
 # 运动学迭代
-execute as 0-0-0-0-0 run function vve:object/_iter_motion
+#execute as 0-0-0-0-0 run function vve:object/_iter_motion
 # 介质探测
 execute as 0-0-0-0-0 run function vve_examples:dice_4/_iter_cpoints
 # 力学迭代
-scoreboard players operation vy int -= vve_gravity int
+#scoreboard players operation vy int -= vve_gravity int
 # 介质响应
 execute if score shift_response int matches 1 run function vve:object/_apply_shift
 execute if score impulse_response int matches 1 as 0-0-0-0-0 run function vve:block/_apply_impulse
