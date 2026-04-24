@@ -23,9 +23,7 @@ scoreboard players set uvec_x int 0
 scoreboard players set uvec_y int 0
 scoreboard players set uvec_z int 10000
 function math:quat/axis/_uvecto
-execute store result score quat_phi int run random value 0..359
-scoreboard players operation quat_phi int /= 45 int
-scoreboard players operation quat_phi int *= 450000 int
+execute store result score quat_phi int run random value 1..3600000
 function math:quat/_xyzw
 scoreboard players set angular_x int 0
 scoreboard players set angular_y int 0

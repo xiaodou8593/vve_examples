@@ -15,9 +15,9 @@ execute if score loop int matches 1.. run function vve_examples:dice_4/rand_quat
 data modify entity @s Pos set from storage vve_examples:io result[0]
 # 设置姿态与旋转
 execute positioned 0.0 0.0 0.0 facing entity @s feet run function math:quat/_facing_to
-#scoreboard players operation quat_x int *= -1 int
-#scoreboard players operation quat_y int *= -1 int
-#scoreboard players operation quat_z int *= -1 int
+scoreboard players operation quat_x int *= -1 int
+scoreboard players operation quat_y int *= -1 int
+scoreboard players operation quat_z int *= -1 int
 function math:quat/_topose
 scoreboard players set uvec_x int 0
 scoreboard players set uvec_y int 0
@@ -27,7 +27,6 @@ scoreboard players operation quat_phi int = inp int
 scoreboard players operation quat_phi int %= 360 int
 scoreboard players operation quat_phi int /= 60 int
 scoreboard players operation quat_phi int *= 600000 int
-scoreboard players set quat_phi int 0
 function math:quat/_xyzw
 scoreboard players set angular_x int 0
 scoreboard players set angular_y int 0
