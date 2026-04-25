@@ -1,5 +1,5 @@
 tellraw @a {"text":"-----------"}
-tellraw @a {"text":"测试结束：d4"}
+tellraw @a {"text":"测试结束：d8"}
 tellraw @a [{"text":"测试次数："},{"score":{name:"time",objective:"d8_test"}}]
 tellraw @a [{"text":"点数1："},{"score":{name:"1",objective:"d8_test"}}]
 tellraw @a [{"text":"点数2："},{"score":{name:"2",objective:"d8_test"}}]
