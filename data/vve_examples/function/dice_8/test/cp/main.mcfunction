@@ -5,7 +5,7 @@ scoreboard players set @s killtime 10
 
 function vve_examples:dice_8/_get
 # 运动学迭代
-execute as 0-0-0-0-0 run function vve:object/_iter_motion
+#execute as 0-0-0-0-0 run function vve:object/_iter_motion
 # 介质探测
 execute as 0-0-0-0-0 run function vve_examples:dice_8/_iter_cpoints
 # 力学迭代
