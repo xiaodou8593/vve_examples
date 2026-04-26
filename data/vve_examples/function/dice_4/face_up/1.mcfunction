@@ -1,4 +1,4 @@
-#vve_examples:dice_4/test/face_up
+#vve_examples:dice_4/face_up/{n}
 
 # 拉取d4骰子的数据模板，投射到临时对象
 data modify storage vve_examples:io input set from storage vve_examples:class dice_4_plate
@@ -26,7 +26,19 @@ scoreboard players set uvec_y int 10000
 scoreboard players set uvec_z int 0
 function math:quat/axis/_uvecto
 # 水平旋转，摆正数字(注意实际旋转角度为这里输入的两倍)
+
+# 首先朝向0
 scoreboard players set quat_phi int -300000
+
+## 获取玩家朝向
+execute store result score quat_phi_player int run data get entity @s Rotation[0] 10000
+## 旋转180度
+scoreboard players add quat_phi_player int 1800000
+## 除以2
+scoreboard players operation quat_phi_player int /= 2 int
+## 相减
+scoreboard players operation quat_phi int -= quat_phi_player int
+
 execute as @e[tag=math_marker,limit=1] run function math:quat/_xyzw
 
 # 更新角速度
