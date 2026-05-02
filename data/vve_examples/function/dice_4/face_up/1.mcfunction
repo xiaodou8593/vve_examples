@@ -57,5 +57,7 @@ data modify storage vve_examples:io input set from storage vve_examples:io resul
 function vve_examples:dice_4/_new
 execute as @e[tag=result,limit=1] run function vve:object/_sync_motion
 scoreboard players set @e[tag=result,limit=1] killtime 120
-# 取消物理运动
-tag @e[tag=result,limit=1] remove dice_4
+
+# 取消物理运动,存储数据
+scoreboard players set point dice_dpoint 1
+execute as @e[tag=result,limit=1] run function vve_examples:dice_4/face_up/tag
