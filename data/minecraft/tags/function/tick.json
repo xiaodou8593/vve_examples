@@ -3,11 +3,6 @@
         "vve_examples:dice_4/tick",
         "vve_examples:dice_6/tick",
         "vve_examples:dice_8/tick",
-        "vve_examples:dice_12/tick",
-
-        "vve_examples:test/d4/tick",
-        "vve_examples:test/d6/tick",
-        "vve_examples:test/d8/tick",
-        "vve_examples:test/d12/tick"
+        "vve_examples:dice_12/tick"
     ]
 }
