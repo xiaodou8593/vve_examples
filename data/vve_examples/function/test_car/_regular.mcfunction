@@ -48,7 +48,7 @@ scoreboard players operation nvec_x int *= stemp_s int
 scoreboard players operation nvec_y int *= stemp_s int
 scoreboard players operation nvec_z int *= stemp_s int
 
-#function math:nvec/_print
+function math:nvec/_print
 
 # 平面四元数
 function math:iquat/_nvec_to

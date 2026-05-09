@@ -11,6 +11,7 @@ execute as 0-0-0-0-0 run function vve_examples:test_car/_iter_cpoints
 # 力学迭代
 scoreboard players operation vy int -= vve_gravity int
 # 介质响应
+execute if score test_n int matches 17 run scoreboard players set test int 1
 execute if score shift_response int matches 1 run function vve:object/_apply_shift
 execute if score impulse_response int matches 1 as 0-0-0-0-0 run function vve:box_object/_apply_impulse
 # 外部冲量
@@ -18,6 +19,9 @@ data modify storage vve:io result set from entity @s data.impulse_receiver
 execute if data storage vve:io result[0] run function vve:cubox/_outer_impulse
 function vve:object/_apply_friction
 # 姿态角速度修正
+execute if score test_n int matches 17 run tellraw @a ["grab_layer_response: ", {"score":{"name":"grab_layer_response","objective":"int"}}]
+execute if score test_n int matches 17 run tellraw @a ["grab_layer_receiver_v_norm: ", {"score":{"name":"grab_layer_receiver_v_norm","objective":"int"}}]
+execute if score test_n int matches 17 run tellraw @a ["grab_layer_regular_v: ", {"score":{"name":"grab_layer_regular_v","objective":"int"}}]
 tag @s[tag=vve_surface] remove vve_surface
 execute if score grab_layer_response int matches 3.. if score grab_layer_receiver_v_norm int < grab_layer_regular_v int run tag @s add vve_surface
 execute if score grab_layer_response int matches 3.. if score grab_layer_receiver_v_norm int < grab_layer_regular_v int as 0-0-0-0-0 run function vve_examples:test_car/_regular
