@@ -5,7 +5,8 @@
 # 输入receiver{...}
 # 需要传入世界实体为执行者
 
-#tellraw @a ["shift_points: ", {"nbt":"shift_points","storage":"vve:io"}]
+#execute if score test_n int matches 17 run function math:nvec/_print
+#execute if score test_n int matches 17 run tellraw @a ["shift_points: ", {"nbt":"shift_points","storage":"vve:io"}]
 # 叉乘计算表面法向量
 execute store result score stemp_x int run data get storage vve:io shift_points[0][0] 10000
 execute store result score stemp_y int run data get storage vve:io shift_points[0][1] 10000
@@ -22,8 +23,6 @@ scoreboard players operation vec_z int -= stemp_z int
 scoreboard players operation fvec_x int -= stemp_x int
 scoreboard players operation fvec_y int -= stemp_y int
 scoreboard players operation fvec_z int -= stemp_z int
-#function math:vec/_print
-#function math:fvec/_print
 function math:vec/_cross_fvec_high
 execute store result storage math:io xyz[0] double 0.0001 run scoreboard players get vec_x int
 execute store result storage math:io xyz[1] double 0.0001 run scoreboard players get vec_y int
@@ -48,7 +47,8 @@ scoreboard players operation nvec_x int *= stemp_s int
 scoreboard players operation nvec_y int *= stemp_s int
 scoreboard players operation nvec_z int *= stemp_s int
 
-function math:nvec/_print
+#execute if score test_n int matches 3 run scoreboard players set test int 1
+#execute if score test_n int matches 3 run function math:nvec/_print
 
 # 平面四元数
 function math:iquat/_nvec_to
