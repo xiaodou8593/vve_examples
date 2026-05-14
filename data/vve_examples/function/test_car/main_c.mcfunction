@@ -1,4 +1,4 @@
-#vve_examples:test_car/main
+#vve_examples:test_car/main_c
 # vve_examples:test_car/tick调用
 # 实体对象主程序
 
@@ -7,12 +7,13 @@ function vve_examples:test_car/_get
 # 运动学迭代
 execute as 0-0-0-0-0 run function vve:object/_iter_motion
 # 介质探测
-execute as 0-0-0-0-0 run function vve_examples:test_car/_iter_cpoints
+execute as 0-0-0-0-0 run function vve_examples:test_car/_iter_cpoints_c
 # 力学迭代
 scoreboard players operation vy int -= vve_gravity int
 # 介质响应
 execute if score shift_response int matches 1 run function vve:object/_apply_shift
-execute if score impulse_response int matches 1 as 0-0-0-0-0 run function vve:box_object/_apply_impulse
+execute if score impulse_response int matches 1 run function vve:object/_apply_impulse_f
+execute if score couple_response int matches 1 as 0-0-0-0-0 run function vve:box_object/_apply_couple
 # 外部冲量
 data modify storage vve:io result set from entity @s data.impulse_receiver
 execute if data storage vve:io result[0] run function vve:cubox/_outer_impulse
