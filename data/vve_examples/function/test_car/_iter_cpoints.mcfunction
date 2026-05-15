@@ -6,6 +6,7 @@
 
 # 开始接收介质响应
 function vve:object/_clear_receiver
+scoreboard players set shift_cnt int 0
 # 接收位移层坐标
 data modify storage vve:io shift_points set value []
 
@@ -279,6 +280,9 @@ execute if score cube_shift_y int matches 40001.. run function vve:cube/_detect_
 
 # 结束接受介质响应
 function vve:object/_receive_over
+scoreboard players operation shift_x int /= shift_cnt int
+scoreboard players operation shift_y int /= shift_cnt int
+scoreboard players operation shift_z int /= shift_cnt int
 
 # 区块安全
 tp @s 0 0 0
