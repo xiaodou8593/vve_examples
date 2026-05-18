@@ -18,7 +18,10 @@ function vve_examples:test_car/_model
 data modify storage vve_examples:io input set from storage vve_examples:io result
 execute positioned 193 -56.7125 53 run function vve_examples:test_car/_new
 data modify entity @e[tag=result,limit=1] CustomName set value "A"
-function vve_examples:test_car/test/cp/poke
+#function vve_examples:test_car/test/cp/poke
+tag @e[tag=input] remove input
+tag @p add input
+execute as @e[tag=result,limit=1] run function vve_examples:test_car/_seat_on
 
 execute as @e[tag=result,limit=1] run function marker_control:data/_get
 
