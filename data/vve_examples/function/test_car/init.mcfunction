@@ -2,6 +2,12 @@
 # 初始化test_car模块
 
 
+scoreboard objectives add target_power dummy
+scoreboard objectives add damp_x dummy
+scoreboard objectives add damp_v dummy
+scoreboard objectives add damp_k dummy
+scoreboard objectives add damp_b dummy
+scoreboard objectives add damp_f dummy
 scoreboard objectives add mass dummy
 scoreboard objectives add tensor_xx dummy
 scoreboard objectives add tensor_yy dummy

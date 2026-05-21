@@ -274,10 +274,10 @@ execute if score shift_response int matches 1 run function vve_examples:test_car
 execute if score impulse_response int matches 1 run function vve:object/_dec_impulse
 
 # 动态碰撞点
-execute if score cube_shift_y int matches ..5000 run function vve:cube/_detect_1
-execute if score cube_shift_y int matches 5001..20000 run function vve:cube/_detect_4
-execute if score cube_shift_y int matches 20001..40000 run function vve:cube/_detect_8
-execute if score cube_shift_y int matches 40001.. run function vve:cube/_detect_16
+execute if score cube_shift_y int matches ..5000 run function vve:cube/_detect_1_c
+execute if score cube_shift_y int matches 5001..20000 run function vve:cube/_detect_4_c
+execute if score cube_shift_y int matches 20001..40000 run function vve:cube/_detect_8_c
+execute if score cube_shift_y int matches 40001.. run function vve:cube/_detect_16_c
 
 # 结束接受介质响应
 function vve:object/_receive_over

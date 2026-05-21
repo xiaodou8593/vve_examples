@@ -22,6 +22,13 @@ function vve:object/_apply_friction
 tag @s[tag=vve_surface] remove vve_surface
 execute if score grab_layer_response int matches 3.. if score grab_layer_receiver_v_norm int < grab_layer_regular_v int run tag @s add vve_surface
 execute if data storage vve:io shift_points[2] as 0-0-0-0-0 run function vve_examples:test_car/_regular
+# 按键控制
+execute if entity @s[tag=vve_surface] run function vve_examples:test_car/control/main_surface
+execute if entity @s[tag=!vve_surface] run function vve_examples:test_car/control/main_air
+# 发动机引擎
+scoreboard players set res int 1
+execute if score target_power int matches 0 if score damp_x int matches 0 if score damp_v int matches 0 run scoreboard players set res int 0
+execute if score res int matches 1 run function vve_examples:test_car/engine/main
 # 运动同步
 function vve:cubox/_sync_motion
 function vve_examples:test_car/_store

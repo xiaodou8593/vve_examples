@@ -2,8 +2,14 @@
 # 使用临时对象构建数据模板
 # 输出数据模板storage vve_examples:io result
 
-data modify storage vve_examples:io result set value {mass:0, tensor:[0.0d, 0.0d, 0.0d, 0.0d, 0.0d, 0.0d], cube_shift_y:0, nvec:[0.0d, 0.0d, 0.0d], scale:[0.0d, 0.0d, 0.0d], center:[0.0d, 0.0d, 0.0d], velocity:[0.0d, 0.0d, 0.0d], angular_vec:[0.0d, 0.0d, 0.0d], angular_len:0, ivec:[0.0d, 0.0d, 0.0d], jvec:[0.0d, 0.0d, 0.0d], kvec:[0.0d, 0.0d, 0.0d], xyzw:[0.0d, 0.0d, 0.0d, 0.0d], start_xyzw:[0.0d, 0.0d, 0.0d, 0.0d], orth_xyzw:[0.0d, 0.0d, 0.0d, 0.0d], quat_phi:0}
+data modify storage vve_examples:io result set value {engine:[0.0d, 0.0d, 0.0d, 0.0d, 0.0d, 0.0d], mass:0, tensor:[0.0d, 0.0d, 0.0d, 0.0d, 0.0d, 0.0d], cube_shift_y:0, nvec:[0.0d, 0.0d, 0.0d], scale:[0.0d, 0.0d, 0.0d], center:[0.0d, 0.0d, 0.0d], velocity:[0.0d, 0.0d, 0.0d], angular_vec:[0.0d, 0.0d, 0.0d], angular_len:0, ivec:[0.0d, 0.0d, 0.0d], jvec:[0.0d, 0.0d, 0.0d], kvec:[0.0d, 0.0d, 0.0d], xyzw:[0.0d, 0.0d, 0.0d, 0.0d], start_xyzw:[0.0d, 0.0d, 0.0d, 0.0d], orth_xyzw:[0.0d, 0.0d, 0.0d, 0.0d], quat_phi:0}
 
+execute store result storage vve_examples:io result.engine[0] double 1 run scoreboard players get target_power int
+execute store result storage vve_examples:io result.engine[1] double 1 run scoreboard players get damp_x int
+execute store result storage vve_examples:io result.engine[2] double 1 run scoreboard players get damp_v int
+execute store result storage vve_examples:io result.engine[3] double 1 run scoreboard players get damp_k int
+execute store result storage vve_examples:io result.engine[4] double 1 run scoreboard players get damp_b int
+execute store result storage vve_examples:io result.engine[5] double 1 run scoreboard players get damp_f int
 execute store result storage vve_examples:io result.mass int 1 run scoreboard players get mass int
 execute store result storage vve_examples:io result.tensor[0] double 0.01 run scoreboard players get tensor_xx int
 execute store result storage vve_examples:io result.tensor[1] double 0.01 run scoreboard players get tensor_yy int

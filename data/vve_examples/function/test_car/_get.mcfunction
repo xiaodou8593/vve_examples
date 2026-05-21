@@ -2,6 +2,12 @@
 # 实体对象赋值到临时对象
 # 输入执行实体
 
+scoreboard players operation target_power int = @s target_power
+scoreboard players operation damp_x int = @s damp_x
+scoreboard players operation damp_v int = @s damp_v
+scoreboard players operation damp_k int = @s damp_k
+scoreboard players operation damp_b int = @s damp_b
+scoreboard players operation damp_f int = @s damp_f
 scoreboard players operation mass int = @s mass
 scoreboard players operation tensor_xx int = @s tensor_xx
 scoreboard players operation tensor_yy int = @s tensor_yy

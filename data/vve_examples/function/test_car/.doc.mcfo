@@ -2,6 +2,14 @@
 
 # test_car临时对象
 _this:{
+	engine:{
+		<target_power,int>,
+		<damp_x,int>,
+		<damp_v,int>,
+		<damp_k,int>,
+		<damp_b,int>,
+		<damp_f,int>
+	},
 	mass:<mass,int,1>,
 	tensor:{
 		<tensor_xx,int,100>,

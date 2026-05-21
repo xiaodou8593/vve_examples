@@ -1,6 +1,12 @@
 #vve_examples:test_car/_zero
 # 把临时对象的全部数据置0
 
+scoreboard players set target_power int 0
+scoreboard players set damp_x int 0
+scoreboard players set damp_v int 0
+scoreboard players set damp_k int 0
+scoreboard players set damp_b int 0
+scoreboard players set damp_f int 0
 scoreboard players set mass int 0
 scoreboard players set tensor_xx int 0
 scoreboard players set tensor_yy int 0

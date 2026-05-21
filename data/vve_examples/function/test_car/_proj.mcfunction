@@ -2,6 +2,12 @@
 # 把数据模板投射到临时对象
 # 输入数据模板storage vve_examples:io input
 
+execute store result score target_power int run data get storage vve_examples:io input.engine[0]
+execute store result score damp_x int run data get storage vve_examples:io input.engine[1]
+execute store result score damp_v int run data get storage vve_examples:io input.engine[2]
+execute store result score damp_k int run data get storage vve_examples:io input.engine[3]
+execute store result score damp_b int run data get storage vve_examples:io input.engine[4]
+execute store result score damp_f int run data get storage vve_examples:io input.engine[5]
 execute store result score mass int run data get storage vve_examples:io input.mass
 execute store result score tensor_xx int run data get storage vve_examples:io input.tensor[0] 100
 execute store result score tensor_yy int run data get storage vve_examples:io input.tensor[1] 100
