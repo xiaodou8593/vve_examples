@@ -38,4 +38,6 @@ scoreboard players set @e[tag=result,limit=1] killtime 20
 scoreboard players set test int -1
 scoreboard players set test_n int 0
 
+data modify storage vve_examples:io test_frames set value {}
+
 #execute positioned 193 -53 53 positioned ~15 ~15 ~15 as @e[tag=result,limit=1] run function vve:object/_rotate_here_as
