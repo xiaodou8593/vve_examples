@@ -7,8 +7,8 @@ execute as 0-0-0-0-0 run function vve:point/_render_velocity
 execute unless score test int matches -1 run return fail
 scoreboard players set @s killtime 10
 
-#tellraw @a "---"
-#tellraw @a ["test_n: ", {"score":{"name":"test_n","objective":"int"}}]
+tellraw @a "---"
+tellraw @a ["test_n: ", {"score":{"name":"test_n","objective":"int"}}]
 
 function vve_examples:test_car/main_c
 

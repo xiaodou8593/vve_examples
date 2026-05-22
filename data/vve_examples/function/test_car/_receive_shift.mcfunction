@@ -4,37 +4,37 @@
 
 scoreboard players set shift_receiver_response int 1
 
-#execute if score shift_x int matches 1.. if score shift_receiver_x int matches 0.. run \
-#	scoreboard players operation shift_receiver_x int > shift_x int
-#execute if score shift_x int matches ..-1 if score shift_receiver_x int matches ..0 run \
-#	scoreboard players operation shift_receiver_x int < shift_x int
-#execute if score shift_x int matches 1.. if score shift_receiver_x int matches ..0 run \
-#	scoreboard players operation shift_receiver_x int += shift_x int
-#execute if score shift_x int matches ..-1 if score shift_receiver_x int matches 0.. run \
-#	scoreboard players operation shift_receiver_x int += shift_x int
-#
-#execute if score shift_y int matches 1.. if score shift_receiver_y int matches 0.. run \
-#	scoreboard players operation shift_receiver_y int > shift_y int
-#execute if score shift_y int matches ..-1 if score shift_receiver_y int matches ..0 run \
-#	scoreboard players operation shift_receiver_y int < shift_y int
-#execute if score shift_y int matches 1.. if score shift_receiver_y int matches ..0 run \
-#	scoreboard players operation shift_receiver_y int += shift_y int
-#execute if score shift_y int matches ..-1 if score shift_receiver_y int matches 0.. run \
-#	scoreboard players operation shift_receiver_y int += shift_y int
-#
-#execute if score shift_z int matches 1.. if score shift_receiver_z int matches 0.. run \
-#	scoreboard players operation shift_receiver_z int > shift_z int
-#execute if score shift_z int matches ..-1 if score shift_receiver_z int matches ..0 run \
-#	scoreboard players operation shift_receiver_z int < shift_z int
-#execute if score shift_z int matches 1.. if score shift_receiver_z int matches ..0 run \
-#	scoreboard players operation shift_receiver_z int += shift_z int
-#execute if score shift_z int matches ..-1 if score shift_receiver_z int matches 0.. run \
-#	scoreboard players operation shift_receiver_z int += shift_z int
+execute if score shift_x int matches 1.. if score shift_receiver_x int matches 0.. run \
+	scoreboard players operation shift_receiver_x int > shift_x int
+execute if score shift_x int matches ..-1 if score shift_receiver_x int matches ..0 run \
+	scoreboard players operation shift_receiver_x int < shift_x int
+execute if score shift_x int matches 1.. if score shift_receiver_x int matches ..0 run \
+	scoreboard players operation shift_receiver_x int += shift_x int
+execute if score shift_x int matches ..-1 if score shift_receiver_x int matches 0.. run \
+	scoreboard players operation shift_receiver_x int += shift_x int
 
-scoreboard players add shift_cnt int 1
-scoreboard players operation shift_receiver_x int += shift_x int
-scoreboard players operation shift_receiver_y int += shift_y int
-scoreboard players operation shift_receiver_z int += shift_z int
+execute if score shift_y int matches 1.. if score shift_receiver_y int matches 0.. run \
+	scoreboard players operation shift_receiver_y int > shift_y int
+execute if score shift_y int matches ..-1 if score shift_receiver_y int matches ..0 run \
+	scoreboard players operation shift_receiver_y int < shift_y int
+execute if score shift_y int matches 1.. if score shift_receiver_y int matches ..0 run \
+	scoreboard players operation shift_receiver_y int += shift_y int
+execute if score shift_y int matches ..-1 if score shift_receiver_y int matches 0.. run \
+	scoreboard players operation shift_receiver_y int += shift_y int
+
+execute if score shift_z int matches 1.. if score shift_receiver_z int matches 0.. run \
+	scoreboard players operation shift_receiver_z int > shift_z int
+execute if score shift_z int matches ..-1 if score shift_receiver_z int matches ..0 run \
+	scoreboard players operation shift_receiver_z int < shift_z int
+execute if score shift_z int matches 1.. if score shift_receiver_z int matches ..0 run \
+	scoreboard players operation shift_receiver_z int += shift_z int
+execute if score shift_z int matches ..-1 if score shift_receiver_z int matches 0.. run \
+	scoreboard players operation shift_receiver_z int += shift_z int
+
+#scoreboard players add shift_cnt int 1
+#scoreboard players operation shift_receiver_x int += shift_x int
+#scoreboard players operation shift_receiver_y int += shift_y int
+#scoreboard players operation shift_receiver_z int += shift_z int
 
 #tellraw @a "receive shift"
 execute store result storage math:io xyz[0] double 0.0001 run scoreboard players operation shift_x int += c_x int

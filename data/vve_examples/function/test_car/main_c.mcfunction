@@ -4,6 +4,7 @@
 
 tag @s remove vve_material_box
 function vve_examples:test_car/_get
+execute if score test_n int matches 38 run function vve:_print_velocity
 # 运动学迭代
 execute as 0-0-0-0-0 run function vve:object/_iter_motion
 # 介质探测
@@ -23,12 +24,15 @@ tag @s[tag=vve_surface] remove vve_surface
 execute if score grab_layer_response int matches 3.. if score grab_layer_receiver_v_norm int < grab_layer_regular_v int run tag @s add vve_surface
 execute if data storage vve:io shift_points[2] as 0-0-0-0-0 run function vve_examples:test_car/_regular
 # 按键控制
+execute on passengers on passengers run function vve_examples:test_car/control/get_signal
 execute if entity @s[tag=vve_surface] run function vve_examples:test_car/control/main_surface
 execute if entity @s[tag=!vve_surface] run function vve_examples:test_car/control/main_air
 # 发动机引擎
 scoreboard players set res int 1
 execute if score target_power int matches 0 if score damp_x int matches 0 if score damp_v int matches 0 run scoreboard players set res int 0
 execute if score res int matches 1 run function vve_examples:test_car/engine/main
+execute if score test_n int matches 38 run function vve:_print_velocity
+execute if score test_n int matches 38 run scoreboard players set test int 1
 # 运动同步
 function vve:cubox/_sync_motion
 function vve_examples:test_car/_store
