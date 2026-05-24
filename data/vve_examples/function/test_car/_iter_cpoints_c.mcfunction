@@ -128,6 +128,7 @@ scoreboard players operation c_z int += sstemp_kz int
 execute store result storage math:io xyz[0] double 0.0001 run scoreboard players operation c_x int += x int
 execute store result storage math:io xyz[1] double 0.0001 run scoreboard players operation c_y int += y int
 execute store result storage math:io xyz[2] double 0.0001 run scoreboard players operation c_z int += z int
+#tellraw @a ["vertex 1: ", {"nbt":"xyz","storage":"math:io"}]
 scoreboard players operation c_vx int = sstemp_rx int
 scoreboard players operation c_vy int = sstemp_ry int
 scoreboard players operation c_vz int = sstemp_rz int
@@ -145,7 +146,7 @@ execute at @s run function vve:_detect_material
 execute if score bounce_layer_response int matches 1 run function vve:object/_receive_bounce_layer
 execute if score grab_layer_response int matches 1 run function vve:object/_receive_grab_layer
 scoreboard players operation friction_receiver_response int < friction_response int
-execute if score shift_response int matches 1 run function vve_examples:test_car/_receive_shift
+execute if score shift_response int matches 1 run function vve_examples:test_car/_receive_shift_s
 execute if score impulse_response int matches 1 run function vve:object/_dec_impulse
 
 # 偏移距离乘2
@@ -175,12 +176,13 @@ scoreboard players operation c_vz int -= sstemp_tz int
 execute store result storage math:io xyz[0] double 0.0001 run scoreboard players operation c_x int -= sstemp_kx int
 execute store result storage math:io xyz[1] double 0.0001 run scoreboard players operation c_y int -= sstemp_ky int
 execute store result storage math:io xyz[2] double 0.0001 run scoreboard players operation c_z int -= sstemp_kz int
+#tellraw @a ["vertex 2: ", {"nbt":"xyz","storage":"math:io"}]
 data modify entity @s Pos set from storage math:io xyz
 execute at @s run function vve:_detect_material
 execute if score bounce_layer_response int matches 1 run function vve:object/_receive_bounce_layer
 execute if score grab_layer_response int matches 1 run function vve:object/_receive_grab_layer
 scoreboard players operation friction_receiver_response int < friction_response int
-execute if score shift_response int matches 1 run function vve_examples:test_car/_receive_shift
+execute if score shift_response int matches 1 run function vve_examples:test_car/_receive_shift_s
 execute if score impulse_response int matches 1 run function vve:object/_dec_impulse
 
 # 顶点3介质探测
@@ -190,12 +192,13 @@ scoreboard players operation c_vz int -= sstemp_rz int
 execute store result storage math:io xyz[0] double 0.0001 run scoreboard players operation c_x int -= sstemp_ix int
 execute store result storage math:io xyz[1] double 0.0001 run scoreboard players operation c_y int -= sstemp_iy int
 execute store result storage math:io xyz[2] double 0.0001 run scoreboard players operation c_z int -= sstemp_iz int
+#tellraw @a ["vertex 3: ", {"nbt":"xyz","storage":"math:io"}]
 data modify entity @s Pos set from storage math:io xyz
 execute at @s run function vve:_detect_material
 execute if score bounce_layer_response int matches 1 run function vve:object/_receive_bounce_layer
 execute if score grab_layer_response int matches 1 run function vve:object/_receive_grab_layer
 scoreboard players operation friction_receiver_response int < friction_response int
-execute if score shift_response int matches 1 run function vve_examples:test_car/_receive_shift
+execute if score shift_response int matches 1 run function vve_examples:test_car/_receive_shift_s
 execute if score impulse_response int matches 1 run function vve:object/_dec_impulse
 
 # 顶点4介质探测
@@ -205,12 +208,13 @@ scoreboard players operation c_vz int += sstemp_tz int
 execute store result storage math:io xyz[0] double 0.0001 run scoreboard players operation c_x int += sstemp_kx int
 execute store result storage math:io xyz[1] double 0.0001 run scoreboard players operation c_y int += sstemp_ky int
 execute store result storage math:io xyz[2] double 0.0001 run scoreboard players operation c_z int += sstemp_kz int
+#tellraw @a ["vertex 4: ", {"nbt":"xyz","storage":"math:io"}]
 data modify entity @s Pos set from storage math:io xyz
 execute at @s run function vve:_detect_material
 execute if score bounce_layer_response int matches 1 run function vve:object/_receive_bounce_layer
 execute if score grab_layer_response int matches 1 run function vve:object/_receive_grab_layer
 scoreboard players operation friction_receiver_response int < friction_response int
-execute if score shift_response int matches 1 run function vve_examples:test_car/_receive_shift
+execute if score shift_response int matches 1 run function vve_examples:test_car/_receive_shift_s
 execute if score impulse_response int matches 1 run function vve:object/_dec_impulse
 
 # 顶点5介质探测
@@ -220,6 +224,7 @@ scoreboard players operation c_vz int -= sstemp_sz int
 execute store result storage math:io xyz[0] double 0.0001 run scoreboard players operation c_x int -= sstemp_jx int
 execute store result storage math:io xyz[1] double 0.0001 run scoreboard players operation c_y int -= sstemp_jy int
 execute store result storage math:io xyz[2] double 0.0001 run scoreboard players operation c_z int -= sstemp_jz int
+#tellraw @a ["vertex 5: ", {"nbt":"xyz","storage":"math:io"}]
 data modify entity @s Pos set from storage math:io xyz
 execute at @s run function vve:_detect_material
 execute if score bounce_layer_response int matches 1 run function vve:object/_receive_bounce_layer
@@ -235,6 +240,7 @@ scoreboard players operation c_vz int -= sstemp_tz int
 execute store result storage math:io xyz[0] double 0.0001 run scoreboard players operation c_x int -= sstemp_kx int
 execute store result storage math:io xyz[1] double 0.0001 run scoreboard players operation c_y int -= sstemp_ky int
 execute store result storage math:io xyz[2] double 0.0001 run scoreboard players operation c_z int -= sstemp_kz int
+#tellraw @a ["vertex 6: ", {"nbt":"xyz","storage":"math:io"}]
 data modify entity @s Pos set from storage math:io xyz
 execute at @s run function vve:_detect_material
 execute if score bounce_layer_response int matches 1 run function vve:object/_receive_bounce_layer
@@ -250,6 +256,7 @@ scoreboard players operation c_vz int += sstemp_rz int
 execute store result storage math:io xyz[0] double 0.0001 run scoreboard players operation c_x int += sstemp_ix int
 execute store result storage math:io xyz[1] double 0.0001 run scoreboard players operation c_y int += sstemp_iy int
 execute store result storage math:io xyz[2] double 0.0001 run scoreboard players operation c_z int += sstemp_iz int
+#tellraw @a ["vertex 7: ", {"nbt":"xyz","storage":"math:io"}]
 data modify entity @s Pos set from storage math:io xyz
 execute at @s run function vve:_detect_material
 execute if score bounce_layer_response int matches 1 run function vve:object/_receive_bounce_layer
@@ -265,6 +272,7 @@ scoreboard players operation c_vz int += sstemp_tz int
 execute store result storage math:io xyz[0] double 0.0001 run scoreboard players operation c_x int += sstemp_kx int
 execute store result storage math:io xyz[1] double 0.0001 run scoreboard players operation c_y int += sstemp_ky int
 execute store result storage math:io xyz[2] double 0.0001 run scoreboard players operation c_z int += sstemp_kz int
+#tellraw @a ["vertex 8: ", {"nbt":"xyz","storage":"math:io"}]
 data modify entity @s Pos set from storage math:io xyz
 execute at @s run function vve:_detect_material
 execute if score bounce_layer_response int matches 1 run function vve:object/_receive_bounce_layer

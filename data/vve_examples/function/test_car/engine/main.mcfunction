@@ -14,5 +14,6 @@ execute if score temp_e int <= res int run function math:damp/_converge
 scoreboard players operation temp_p int = target_power int
 scoreboard players operation temp_p int += damp_x int
 
+#tellraw @a ["temp_p: ", {"score":{"name":"temp_p","objective":"int"}}]
 # 推进速度
-execute if entity @s[tag=vve_surface] run function vve_examples:test_car/engine/gain_velocity
+execute if data storage vve:io shift_points[0] run function vve_examples:test_car/engine/gain_velocity

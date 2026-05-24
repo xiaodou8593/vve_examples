@@ -5,15 +5,13 @@
 # 输入receiver{...}
 # 需要传入世界实体为执行者
 
-#execute if score test_n int matches 17 run function math:nvec/_print
-#execute if score test_n int matches 17 run tellraw @a ["shift_points: ", {"nbt":"shift_points","storage":"vve:io"}]
 # 叉乘计算表面法向量
-execute store result score stemp_x int run data get storage vve:io shift_points[0][0] 10000
-execute store result score stemp_y int run data get storage vve:io shift_points[0][1] 10000
-execute store result score stemp_z int run data get storage vve:io shift_points[0][2] 10000
-execute store result score vec_x int run data get storage vve:io shift_points[1][0] 10000
-execute store result score vec_y int run data get storage vve:io shift_points[1][1] 10000
-execute store result score vec_z int run data get storage vve:io shift_points[1][2] 10000
+execute store result score stemp_x int run data get storage vve:io shift_points[1][0] 10000
+execute store result score stemp_y int run data get storage vve:io shift_points[1][1] 10000
+execute store result score stemp_z int run data get storage vve:io shift_points[1][2] 10000
+execute store result score vec_x int run data get storage vve:io shift_points[0][0] 10000
+execute store result score vec_y int run data get storage vve:io shift_points[0][1] 10000
+execute store result score vec_z int run data get storage vve:io shift_points[0][2] 10000
 execute store result score fvec_x int run data get storage vve:io shift_points[2][0] 10000
 execute store result score fvec_y int run data get storage vve:io shift_points[2][1] 10000
 execute store result score fvec_z int run data get storage vve:io shift_points[2][2] 10000
@@ -47,9 +45,6 @@ scoreboard players operation nvec_x int *= stemp_s int
 scoreboard players operation nvec_y int *= stemp_s int
 scoreboard players operation nvec_z int *= stemp_s int
 
-#execute if score test_n int matches 3 run scoreboard players set test int 1
-#execute if score test_n int matches 3 run function math:nvec/_print
-
 # 平面四元数
 function math:iquat/_nvec_to
 
@@ -67,6 +62,7 @@ function math:quat/_mult
 function math:rquat/_to_quat
 function math:quat/_touvw
 
+#return fail
 execute if score angular_x int matches ..-1 run scoreboard players add angular_x int 99
 execute if score angular_y int matches ..-1 run scoreboard players add angular_y int 99
 execute if score angular_z int matches ..-1 run scoreboard players add angular_z int 99
