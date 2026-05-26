@@ -12,10 +12,10 @@ function vve:cubox/_calc_shift
 scoreboard players set mass int 50
 function vve:cubox/_calc_tensor
 # 发动机参数
-scoreboard players set target_power int 12000
-scoreboard players set damp_x int -12000
+scoreboard players set target_power int 0
+scoreboard players set damp_x int 0
 scoreboard players set damp_k int 17
 scoreboard players set damp_b int 20
-scoreboard players set damp_f int 100
+scoreboard players set damp_f int 1000
 function vve_examples:test_car/_model
 data modify storage vve_examples:class test_car_plate set from storage vve_examples:io result
