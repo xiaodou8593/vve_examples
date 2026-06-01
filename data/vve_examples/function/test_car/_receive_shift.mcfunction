@@ -42,7 +42,7 @@ execute store result storage math:io xyz[0] double 0.0001 run scoreboard players
 execute store result storage math:io xyz[1] double 0.0001 run scoreboard players operation shift_y int += c_y int
 execute store result storage math:io xyz[2] double 0.0001 run scoreboard players operation shift_z int += c_z int
 data modify storage vve:io shift_points append from storage math:io xyz
-#tellraw @a ["shift_point: ", {"nbt":"xyz","storage":"math:io"}]
+tellraw @a ["shift_point: ", {"nbt":"xyz","storage":"math:io"}]
 
 # 旧逻辑
 #execute if score shift_x int matches 1.. run scoreboard players operation shift_receiver_x int > shift_x int

@@ -11,7 +11,7 @@ execute as 0-0-0-0-0 run function vve_examples:test_car/_iter_cpoints_c
 # 力学迭代
 scoreboard players operation vy int -= vve_gravity int
 # 介质响应
-execute if score shift_response int matches 1 run function vve:object/_apply_shift
+execute if score shift_response int matches 1 unless data storage vve:io shift_points[2] run function vve:object/_apply_shift
 execute if score impulse_response int matches 1 run function vve:object/_apply_impulse_f
 execute if score couple_response int matches 1 as 0-0-0-0-0 run function vve:box_object/_apply_couple
 # 外部冲量
@@ -24,9 +24,9 @@ execute if data storage vve:io shift_points[2] run tag @s add vve_surface
 execute if data storage vve:io shift_points[2] as 0-0-0-0-0 run function vve_examples:test_car/_regular
 execute unless data storage vve:io shift_points[2] if score grab_layer_response int matches 3.. if score grab_layer_receiver_v_norm int < grab_layer_regular_v int as 0-0-0-0-0 run function vve:object/_regular
 # 按键控制
-execute on passengers on passengers run function vve_examples:test_car/control/get_signal
-execute if entity @s[tag=vve_surface] run function vve_examples:test_car/control/main_surface
-execute if entity @s[tag=!vve_surface] run function vve_examples:test_car/control/main_air
+#execute on passengers on passengers run function vve_examples:test_car/control/get_signal
+#execute if entity @s[tag=vve_surface] run function vve_examples:test_car/control/main_surface
+#execute if entity @s[tag=!vve_surface] run function vve_examples:test_car/control/main_air
 # 发动机引擎
 scoreboard players set res int 1
 execute if score target_power int matches 0 if score damp_x int matches 0 if score damp_v int matches 0 run scoreboard players set res int 0

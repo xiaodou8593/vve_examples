@@ -12,7 +12,7 @@ tag @e[tag=result,limit=1] add entity_todel
 scoreboard players set @e[tag=result,limit=1] killtime 50
 execute as @e[tag=result,limit=1] run function vve_examples:test_car/main_c
 
-return fail
+#return fail
 tellraw @a "---next frame---"
 #execute as @e[tag=result,limit=1] run function vve_examples:test_car/main_c
 tag @e[tag=result,limit=1] remove vve_material_box
