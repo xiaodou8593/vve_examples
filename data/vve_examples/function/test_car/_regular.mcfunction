@@ -5,6 +5,15 @@
 # 输入receiver{...}
 # 需要传入世界实体为执行者
 
+# 第一个碰撞点转局部坐标
+execute store result score vec_x int run data get storage vve:io shift_origins[0][0] 10000
+execute store result score vec_y int run data get storage vve:io shift_origins[0][1] 10000
+execute store result score vec_z int run data get storage vve:io shift_origins[0][2] 10000
+function math:uvw/_vecto
+scoreboard players operation stemp_u int = u int
+scoreboard players operation stemp_v int = v int
+scoreboard players operation stemp_w int = w int
+
 # 叉乘计算表面法向量
 execute store result score stemp_x int run data get storage vve:io shift_points[1][0] 10000
 execute store result score stemp_y int run data get storage vve:io shift_points[1][1] 10000
@@ -61,6 +70,24 @@ function math:rquat/_to_quat
 function math:quat/_mult
 function math:rquat/_to_quat
 function math:quat/_touvw
+
+# 将旋转后的碰撞点对齐
+scoreboard players operation u int = stemp_u int
+scoreboard players operation v int = stemp_v int
+scoreboard players operation w int = stemp_w int
+function math:uvw/_tovec
+#function math:vec/_print
+execute store result score fvec_x int run data get storage vve:io shift_points[0][0] 10000
+execute store result score fvec_y int run data get storage vve:io shift_points[0][1] 10000
+execute store result score fvec_z int run data get storage vve:io shift_points[0][2] 10000
+#function math:fvec/_print
+scoreboard players operation vec_x int -= fvec_x int
+scoreboard players operation vec_y int -= fvec_y int
+scoreboard players operation vec_z int -= fvec_z int
+#function math:vec/_print
+scoreboard players operation x int -= vec_x int
+scoreboard players operation y int -= vec_y int
+scoreboard players operation z int -= vec_z int
 
 #return fail
 execute if score angular_x int matches ..-1 run scoreboard players add angular_x int 99

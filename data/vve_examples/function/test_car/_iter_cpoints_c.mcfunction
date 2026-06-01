@@ -10,6 +10,7 @@ function vve:object/_clear_receiver
 #scoreboard players set shift_cnt int 0
 # 接收位移层坐标
 data modify storage vve:io shift_points set value []
+data modify storage vve:io shift_origins set value []
 
 # 相对坐标组成部分
 scoreboard players operation sstemp_iz int = scale_u int
