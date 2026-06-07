@@ -1,6 +1,8 @@
 #vve_examples:test_car/_receive_shift
 # 接收位移响应
 # 迭代receiver{...}
+# 迭代storage vve:io shift_points
+# 迭代storage vve:io shift_origins
 
 scoreboard players set shift_receiver_response int 1
 

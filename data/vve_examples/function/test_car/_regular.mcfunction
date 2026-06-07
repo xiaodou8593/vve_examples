@@ -5,6 +5,10 @@
 # 输入receiver{...}
 # 需要传入世界实体为执行者
 
+# 补充列表
+data modify storage vve:io shift_points append from storage vve:io not_shift_points[]
+data modify storage vve:io shift_origins append from storage vve:io not_shift_origins[]
+
 # 第一个碰撞点转局部坐标
 execute store result score vec_x int run data get storage vve:io shift_origins[0][0] 10000
 execute store result score vec_y int run data get storage vve:io shift_origins[0][1] 10000
@@ -76,20 +80,39 @@ scoreboard players operation u int = stemp_u int
 scoreboard players operation v int = stemp_v int
 scoreboard players operation w int = stemp_w int
 function math:uvw/_tovec
-#function math:vec/_print
 execute store result score fvec_x int run data get storage vve:io shift_points[0][0] 10000
 execute store result score fvec_y int run data get storage vve:io shift_points[0][1] 10000
 execute store result score fvec_z int run data get storage vve:io shift_points[0][2] 10000
-#function math:fvec/_print
 scoreboard players operation vec_x int -= fvec_x int
 scoreboard players operation vec_y int -= fvec_y int
 scoreboard players operation vec_z int -= fvec_z int
-#function math:vec/_print
 scoreboard players operation x int -= vec_x int
 scoreboard players operation y int -= vec_y int
 scoreboard players operation z int -= vec_z int
 
-#return fail
+# 消除nvec方向的位移并施加
+scoreboard players operation stemp_x int = shift_x int
+scoreboard players operation stemp_y int = shift_y int
+scoreboard players operation stemp_z int = shift_z int
+scoreboard players operation stemp_x int *= nvec_x int
+scoreboard players operation stemp_y int *= nvec_y int
+scoreboard players operation stemp_z int *= nvec_z int
+scoreboard players operation stemp_x int += stemp_y int
+scoreboard players operation stemp_x int += stemp_z int
+execute store result score stemp_y int store result score stemp_z int run scoreboard players operation stemp_x int /= 10000 int
+scoreboard players operation stemp_x int *= nvec_x int
+scoreboard players operation stemp_y int *= nvec_y int
+scoreboard players operation stemp_z int *= nvec_z int
+scoreboard players operation stemp_x int /= 10000 int
+scoreboard players operation stemp_y int /= 10000 int
+scoreboard players operation stemp_z int /= 10000 int
+scoreboard players operation shift_x int -= stemp_x int
+scoreboard players operation shift_y int -= stemp_y int
+scoreboard players operation shift_z int -= stemp_z int
+scoreboard players operation x int += shift_x int
+scoreboard players operation y int += shift_y int
+scoreboard players operation z int += shift_z int
+
 execute if score angular_x int matches ..-1 run scoreboard players add angular_x int 99
 execute if score angular_y int matches ..-1 run scoreboard players add angular_y int 99
 execute if score angular_z int matches ..-1 run scoreboard players add angular_z int 99

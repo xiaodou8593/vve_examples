@@ -9,7 +9,7 @@ execute as @e[tag=result,limit=1] run function marker_control:data/_get
 data modify storage marker_control:io result.del_func set value "vve_examples:test_car/_del"
 execute as @e[tag=result,limit=1] run function marker_control:data/_store
 tag @e[tag=result,limit=1] add entity_todel
-scoreboard players set @e[tag=result,limit=1] killtime 300
+scoreboard players set @e[tag=result,limit=1] killtime 50
 execute as @e[tag=result,limit=1] run function vve_examples:test_car/main_c
 
 return fail

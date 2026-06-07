@@ -11,6 +11,9 @@ function vve:object/_clear_receiver
 # 接收位移层坐标
 data modify storage vve:io shift_points set value []
 data modify storage vve:io shift_origins set value []
+data modify storage vve:io not_shift_points set value []
+data modify storage vve:io not_shift_origins set value []
+scoreboard players set surface int 0
 
 # 相对坐标组成部分
 scoreboard players operation sstemp_iz int = scale_u int
@@ -143,12 +146,13 @@ scoreboard players operation c_vx int += vx int
 scoreboard players operation c_vy int += vy int
 scoreboard players operation c_vz int += vz int
 data modify entity @s Pos set from storage math:io xyz
-execute at @s run function vve:_detect_material
+execute at @s run function vve:_detect_slope
 execute if score bounce_layer_response int matches 1 run function vve:object/_receive_bounce_layer
 execute if score grab_layer_response int matches 1 run function vve:object/_receive_grab_layer
 scoreboard players operation friction_receiver_response int < friction_response int
 execute if score shift_response int matches 1 run function vve_examples:test_car/_receive_shift_s
 execute if score impulse_response int matches 1 run function vve:object/_dec_impulse
+scoreboard players operation surface int > surface_response int
 
 # 偏移距离乘2
 scoreboard players operation sstemp_ix int *= 2 int
@@ -179,12 +183,13 @@ execute store result storage math:io xyz[1] double 0.0001 run scoreboard players
 execute store result storage math:io xyz[2] double 0.0001 run scoreboard players operation c_z int -= sstemp_kz int
 #tellraw @a ["vertex 2: ", {"nbt":"xyz","storage":"math:io"}]
 data modify entity @s Pos set from storage math:io xyz
-execute at @s run function vve:_detect_material
+execute at @s run function vve:_detect_slope
 execute if score bounce_layer_response int matches 1 run function vve:object/_receive_bounce_layer
 execute if score grab_layer_response int matches 1 run function vve:object/_receive_grab_layer
 scoreboard players operation friction_receiver_response int < friction_response int
 execute if score shift_response int matches 1 run function vve_examples:test_car/_receive_shift_s
 execute if score impulse_response int matches 1 run function vve:object/_dec_impulse
+scoreboard players operation surface int > surface_response int
 
 # 顶点3介质探测
 scoreboard players operation c_vx int -= sstemp_rx int
@@ -195,12 +200,13 @@ execute store result storage math:io xyz[1] double 0.0001 run scoreboard players
 execute store result storage math:io xyz[2] double 0.0001 run scoreboard players operation c_z int -= sstemp_iz int
 #tellraw @a ["vertex 3: ", {"nbt":"xyz","storage":"math:io"}]
 data modify entity @s Pos set from storage math:io xyz
-execute at @s run function vve:_detect_material
+execute at @s run function vve:_detect_slope
 execute if score bounce_layer_response int matches 1 run function vve:object/_receive_bounce_layer
 execute if score grab_layer_response int matches 1 run function vve:object/_receive_grab_layer
 scoreboard players operation friction_receiver_response int < friction_response int
 execute if score shift_response int matches 1 run function vve_examples:test_car/_receive_shift_s
 execute if score impulse_response int matches 1 run function vve:object/_dec_impulse
+scoreboard players operation surface int > surface_response int
 
 # 顶点4介质探测
 scoreboard players operation c_vx int += sstemp_tx int
@@ -211,12 +217,13 @@ execute store result storage math:io xyz[1] double 0.0001 run scoreboard players
 execute store result storage math:io xyz[2] double 0.0001 run scoreboard players operation c_z int += sstemp_kz int
 #tellraw @a ["vertex 4: ", {"nbt":"xyz","storage":"math:io"}]
 data modify entity @s Pos set from storage math:io xyz
-execute at @s run function vve:_detect_material
+execute at @s run function vve:_detect_slope
 execute if score bounce_layer_response int matches 1 run function vve:object/_receive_bounce_layer
 execute if score grab_layer_response int matches 1 run function vve:object/_receive_grab_layer
 scoreboard players operation friction_receiver_response int < friction_response int
 execute if score shift_response int matches 1 run function vve_examples:test_car/_receive_shift_s
 execute if score impulse_response int matches 1 run function vve:object/_dec_impulse
+scoreboard players operation surface int > surface_response int
 
 # 顶点5介质探测
 scoreboard players operation c_vx int -= sstemp_sx int
@@ -227,12 +234,14 @@ execute store result storage math:io xyz[1] double 0.0001 run scoreboard players
 execute store result storage math:io xyz[2] double 0.0001 run scoreboard players operation c_z int -= sstemp_jz int
 #tellraw @a ["vertex 5: ", {"nbt":"xyz","storage":"math:io"}]
 data modify entity @s Pos set from storage math:io xyz
-execute at @s run function vve:_detect_material
+execute at @s run function vve:_detect_slope
 execute if score bounce_layer_response int matches 1 run function vve:object/_receive_bounce_layer
 execute if score grab_layer_response int matches 1 run function vve:object/_receive_grab_layer
 scoreboard players operation friction_receiver_response int < friction_response int
 execute if score shift_response int matches 1 run function vve_examples:test_car/_receive_shift
+execute if score shift_response int matches 0 run function vve_examples:test_car/_receive_not_shift
 execute if score impulse_response int matches 1 run function vve:object/_dec_impulse
+scoreboard players operation surface int > surface_response int
 
 # 顶点6介质探测
 scoreboard players operation c_vx int -= sstemp_tx int
@@ -243,12 +252,14 @@ execute store result storage math:io xyz[1] double 0.0001 run scoreboard players
 execute store result storage math:io xyz[2] double 0.0001 run scoreboard players operation c_z int -= sstemp_kz int
 #tellraw @a ["vertex 6: ", {"nbt":"xyz","storage":"math:io"}]
 data modify entity @s Pos set from storage math:io xyz
-execute at @s run function vve:_detect_material
+execute at @s run function vve:_detect_slope
 execute if score bounce_layer_response int matches 1 run function vve:object/_receive_bounce_layer
 execute if score grab_layer_response int matches 1 run function vve:object/_receive_grab_layer
 scoreboard players operation friction_receiver_response int < friction_response int
 execute if score shift_response int matches 1 run function vve_examples:test_car/_receive_shift
+execute if score shift_response int matches 0 run function vve_examples:test_car/_receive_not_shift
 execute if score impulse_response int matches 1 run function vve:object/_dec_impulse
+scoreboard players operation surface int > surface_response int
 
 # 顶点7介质探测
 scoreboard players operation c_vx int += sstemp_rx int
@@ -259,12 +270,14 @@ execute store result storage math:io xyz[1] double 0.0001 run scoreboard players
 execute store result storage math:io xyz[2] double 0.0001 run scoreboard players operation c_z int += sstemp_iz int
 #tellraw @a ["vertex 7: ", {"nbt":"xyz","storage":"math:io"}]
 data modify entity @s Pos set from storage math:io xyz
-execute at @s run function vve:_detect_material
+execute at @s run function vve:_detect_slope
 execute if score bounce_layer_response int matches 1 run function vve:object/_receive_bounce_layer
 execute if score grab_layer_response int matches 1 run function vve:object/_receive_grab_layer
 scoreboard players operation friction_receiver_response int < friction_response int
 execute if score shift_response int matches 1 run function vve_examples:test_car/_receive_shift
+execute if score shift_response int matches 0 run function vve_examples:test_car/_receive_not_shift
 execute if score impulse_response int matches 1 run function vve:object/_dec_impulse
+scoreboard players operation surface int > surface_response int
 
 # 顶点8介质探测
 scoreboard players operation c_vx int += sstemp_tx int
@@ -275,12 +288,14 @@ execute store result storage math:io xyz[1] double 0.0001 run scoreboard players
 execute store result storage math:io xyz[2] double 0.0001 run scoreboard players operation c_z int += sstemp_kz int
 #tellraw @a ["vertex 8: ", {"nbt":"xyz","storage":"math:io"}]
 data modify entity @s Pos set from storage math:io xyz
-execute at @s run function vve:_detect_material
+execute at @s run function vve:_detect_slope
 execute if score bounce_layer_response int matches 1 run function vve:object/_receive_bounce_layer
 execute if score grab_layer_response int matches 1 run function vve:object/_receive_grab_layer
 scoreboard players operation friction_receiver_response int < friction_response int
 execute if score shift_response int matches 1 run function vve_examples:test_car/_receive_shift
+execute if score shift_response int matches 0 run function vve_examples:test_car/_receive_not_shift
 execute if score impulse_response int matches 1 run function vve:object/_dec_impulse
+scoreboard players operation surface int > surface_response int
 
 # 动态碰撞点
 execute if score cube_shift_y int matches ..5000 run function vve:cube/_detect_1_c
