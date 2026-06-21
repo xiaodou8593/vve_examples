@@ -6,6 +6,7 @@
 # 需要传入世界实体为执行者
 
 # 补充列表
+execute store result score temp_surface int if data storage vve:io shift_points[2]
 data modify storage vve:io shift_points append from storage vve:io not_shift_points[]
 data modify storage vve:io shift_origins append from storage vve:io not_shift_origins[]
 
@@ -113,6 +114,8 @@ scoreboard players operation x int += shift_x int
 scoreboard players operation y int += shift_y int
 scoreboard players operation z int += shift_z int
 
+# 消除角速度
+execute if score temp_surface int matches 0 run return fail
 execute if score angular_x int matches ..-1 run scoreboard players add angular_x int 99
 execute if score angular_y int matches ..-1 run scoreboard players add angular_y int 99
 execute if score angular_z int matches ..-1 run scoreboard players add angular_z int 99

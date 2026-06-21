@@ -21,4 +21,6 @@ execute as @e[tag=result,limit=1] run function vve_examples:test_car/_get
 execute as 0-0-0-0-0 run function vve:object/_iter_motion
 # 介质探测
 execute as 0-0-0-0-0 run function vve_examples:test_car/_iter_cpoints_c
+# 运动同步
+execute as @e[tag=result,limit=1] run function vve:cubox/_sync_motion
 tag @e[tag=result,limit=1] add vve_material_box

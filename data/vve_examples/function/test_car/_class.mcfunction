@@ -10,7 +10,8 @@ scoreboard players set scale_w int 20000
 function vve:cubox/_calc_shift
 # 质量和惯量
 scoreboard players set mass int 50
-function vve:cubox/_calc_tensor
+scoreboard players set inp int 120
+function vve:cubox/_calc_tensor_i
 # 发动机参数
 scoreboard players set target_power int 8000
 scoreboard players set damp_x int -8000
