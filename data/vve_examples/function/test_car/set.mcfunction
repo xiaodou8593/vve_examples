@@ -7,6 +7,7 @@ execute store result score @s damp_v run data get storage vve_examples:io input.
 execute store result score @s damp_k run data get storage vve_examples:io input.engine[3]
 execute store result score @s damp_b run data get storage vve_examples:io input.engine[4]
 execute store result score @s damp_f run data get storage vve_examples:io input.engine[5]
+execute store result score @s v_max run data get storage vve_examples:io input.engine[6] 10000
 execute store result score @s mass run data get storage vve_examples:io input.mass
 execute store result score @s tensor_xx run data get storage vve_examples:io input.tensor[0] 100
 execute store result score @s tensor_yy run data get storage vve_examples:io input.tensor[1] 100

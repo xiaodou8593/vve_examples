@@ -18,5 +18,6 @@ scoreboard players set damp_x int -8000
 scoreboard players set damp_k int 17
 scoreboard players set damp_b int 20
 scoreboard players set damp_f int 1000
+scoreboard players set v_max int 3500
 function vve_examples:test_car/_model
 data modify storage vve_examples:class test_car_plate set from storage vve_examples:io result

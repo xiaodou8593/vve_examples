@@ -14,6 +14,17 @@ execute if score temp_e int <= res int run function math:damp/_converge
 scoreboard players operation temp_p int = target_power int
 scoreboard players operation temp_p int += damp_x int
 
+# 获取前进速度
+scoreboard players operation stemp_v int = vx int
+scoreboard players operation stemp_v int *= kvec_x int
+scoreboard players operation stemp_0 int = vy int
+scoreboard players operation stemp_0 int *= kvec_y int
+scoreboard players operation stemp_v int += stemp_0 int
+scoreboard players operation stemp_0 int = vz int
+scoreboard players operation stemp_0 int *= kvec_z int
+scoreboard players operation stemp_v int += stemp_0 int
+scoreboard players operation stemp_v int /= 10000 int
+
 #tellraw @a ["temp_p: ", {"score":{"name":"temp_p","objective":"int"}}]
 # 推进速度
-execute if data storage vve:io shift_points[0] run function vve_examples:test_car/engine/gain_velocity
+execute if data storage vve:io shift_points[0] if score stemp_v int < v_max int run function vve_examples:test_car/engine/gain_velocity

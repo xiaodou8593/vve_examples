@@ -8,7 +8,8 @@ _this:{
 		<damp_v,int>,
 		<damp_k,int>,
 		<damp_b,int>,
-		<damp_f,int>
+		<damp_f,int>,
+		<v_max,int,1w>
 	},
 	mass:<mass,int,1>,
 	tensor:{

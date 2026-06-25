@@ -8,6 +8,7 @@ scoreboard players operation damp_v int = @s damp_v
 scoreboard players operation damp_k int = @s damp_k
 scoreboard players operation damp_b int = @s damp_b
 scoreboard players operation damp_f int = @s damp_f
+scoreboard players operation v_max int = @s v_max
 scoreboard players operation mass int = @s mass
 scoreboard players operation tensor_xx int = @s tensor_xx
 scoreboard players operation tensor_yy int = @s tensor_yy

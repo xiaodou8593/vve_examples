@@ -19,10 +19,10 @@ scoreboard players set @s killtime 10
 #tellraw @a "---"
 #tellraw @a ["test_n: ", {"score":{"name":"test_n","objective":"int"}}]
 
-function vve_examples:test_car/_get
-function vve_examples:test_car/_model
-execute store result storage vve_examples:io frame int 1 run scoreboard players get test_n int
-function vve_examples:test_car/test/cp/store_frame with storage vve_examples:io {}
+#function vve_examples:test_car/_get
+#function vve_examples:test_car/_model
+#execute store result storage vve_examples:io frame int 1 run scoreboard players get test_n int
+#function vve_examples:test_car/test/cp/store_frame with storage vve_examples:io {}
 
 function vve_examples:test_car/main_c
 

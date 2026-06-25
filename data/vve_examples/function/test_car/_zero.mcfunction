@@ -7,6 +7,7 @@ scoreboard players set damp_v int 0
 scoreboard players set damp_k int 0
 scoreboard players set damp_b int 0
 scoreboard players set damp_f int 0
+scoreboard players set v_max int 0
 scoreboard players set mass int 0
 scoreboard players set tensor_xx int 0
 scoreboard players set tensor_yy int 0

@@ -12,17 +12,16 @@ execute as 0-0-0-0-0 run function vve_examples:test_car/_iter_cpoints_c
 scoreboard players operation vy int -= vve_gravity int
 # 获取位移点数量
 execute store result score shift_cnt int run data get storage vve:io shift_points
-# 介质响应1
+# 介质响应
 execute if score shift_response int matches 1 if score surface int matches 0 if score shift_cnt int matches ..2 run function vve:object/_apply_shift
+execute if score impulse_response int matches 1 run function vve:object/_apply_impulse_f
+execute if score couple_response int matches 1 as 0-0-0-0-0 run function vve:box_object/_apply_couple
 # 姿态角速度修正
 tag @s[tag=vve_surface] remove vve_surface
 execute if score shift_cnt int matches 1.. run tag @s add vve_surface
 execute if score shift_cnt int matches 3.. run scoreboard players set surface int 1
 execute if score surface int matches 1 as 0-0-0-0-0 run function vve_examples:test_car/_regular
 execute if score surface int matches 0 if score shift_cnt int matches 0 if score grab_layer_response int matches 3.. if score grab_layer_receiver_v_norm int < grab_layer_regular_v int as 0-0-0-0-0 run function vve:object/_regular
-# 介质响应2
-execute if score impulse_response int matches 1 run function vve:object/_apply_impulse_f
-execute if score couple_response int matches 1 as 0-0-0-0-0 run function vve:box_object/_apply_couple
 # 外部冲量
 data modify storage vve:io result set from entity @s data.impulse_receiver
 execute if data storage vve:io result[0] run function vve:cubox/_outer_impulse
